@@ -11,7 +11,7 @@ function createArticle(req, res, next) {
         category: req.body.category,
         createdAt: req.body.createdAt,
         updatedAt: req.body.updatedAt
-    });
+    })
     article.save(err => {
         if (err) {
             return next({
@@ -34,12 +34,12 @@ function updateArticle(req, res, next) {
 }
 
 function getArticle(req, res, next) {
-    Article.findById(req.params.id, function (err, user) {
+    Article.findById(req.params.id, function (err, article) {
         if (err) return next({
             status: 404,
             error: err,
         });
-        res.send(user);
+        res.send(article);
     })
 }
 
